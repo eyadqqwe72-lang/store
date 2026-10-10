@@ -222,19 +222,18 @@
 
 <!-- Firebase SDK -->
 <script type="module">
-  // ⚠️⚠️⚠️ استبدلي هذا الكائن بمفاتيحك من Firebase ⚠️⚠️⚠️
-  // التعليمات بالأسفل 👇
+  // ✅ مفاتيح Firebase الخاصة بك — جاهزة!
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCgA6ssopx3uBXgVuWjySU-JLor49VybaK",
+    authDomain: "eyad-story.firebaseapp.com",
+    projectId: "eyad-story",
+    storageBucket: "eyad-story.firebasestorage.app",
+    messagingSenderId: "668364611639",
+    appId: "1:668364611639:web:22bef8d4df63da3e921fb2"
   };
 
-  // إذا لم تضبطي Firebase بعد، استخدمي وضع LocalStorage
-  const useFirebase = !firebaseConfig.apiKey.includes("YOUR_");
+  // ✅ Firebase مُفعّل تلقائياً
+  const useFirebase = true;
 
   if (useFirebase) {
     import("https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js").then(async ({ initializeApp }) => {
@@ -250,19 +249,11 @@
       };
       console.log("🔥 Firebase ready");
     });
-  } else {
-    console.log("📦 Firebase not configured — using LocalStorage");
-    window.saveOrderToFirebase = async (orderData) => {
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
-      orders.push(orderData);
-      localStorage.setItem("orders", JSON.stringify(orders));
-      return true;
-    };
   }
 </script>
 
 <script>
-  /* ====== المنتجات — عدّلي هنا ====== */
+  /* ====== المنتجات ====== */
   const products = [
     { id:1, name:"قميص قطن كلاسيكي", price:250, oldPrice:350, cat:"ملابس", rating:4.5, desc:"قميص قطن 100% مريح وأنيق، مناسب للعمل والمناسبات اليومية. متوفر بجميع المقاسات.", img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=400&fit=crop" },
     { id:2, name:"حذاء رياضي احترافي", price:600, oldPrice:850, cat:"أحذية", rating:4.8, desc:"حذاء خفيف ومثالي للجري والتمارين الرياضية. نعل مضاد للانزلاق مع تهوية ممتازة.", img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=400&fit=crop" },
